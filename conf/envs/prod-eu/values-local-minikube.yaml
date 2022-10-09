@@ -3,7 +3,7 @@ apps:
     project: ntc
     namespace: testnm
     repo:
-      url: 'https://git.ringcentral.com/Eugene.Furmanyk/nginx_chart'
+      url: 'https://github.com/furmanyk/nginx_chart'
       path: '.'
       ref: master
     helm:
