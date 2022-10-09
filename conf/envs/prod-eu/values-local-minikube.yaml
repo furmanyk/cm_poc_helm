@@ -1,0 +1,11 @@
+apps:
+  - name: ntc
+    project: ntc
+    namespace: testnm
+    repo:
+      url: 'https://git.ringcentral.com/Eugene.Furmanyk/nginx_chart'
+      path: '.'
+      ref: master
+    helm:
+      valuesFiles:
+        - values-fra41-eks02.yaml

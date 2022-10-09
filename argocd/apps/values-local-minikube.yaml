@@ -1,0 +1,15 @@
+apps:
+  # nginx test chart
+  - name: ntc
+    project: ntc
+    namespace: testnm
+    repo:
+      url: 'https://git.ringcentral.com/Eugene.Furmanyk/nginx_chart'
+      path: '.'
+      ref: master
+    helm:
+      valuesFiles:
+        - conf/common/values-common.yml
+        - conf/aggregations/values-eu.yml
+        - conf/aggregations/values-prod.yml
+        - conf/envs/prod-eu/values-local-minikube.yaml

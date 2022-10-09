@@ -1,0 +1,13 @@
+{{- range .Values.projects }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .namespace }}
+  {{- if .labels }}
+  labels:
+    {{- range $k, $v := .labels }}
+    {{ $k }}: {{ $v }}
+    {{ end }}
+  {{ end }}
+{{- end }}

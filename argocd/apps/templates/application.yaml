@@ -1,0 +1,44 @@
+{{- range .Values.apps }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}
+  namespace: argocd
+{{- with .finalizers }}
+  finalizers:
+    {{- toYaml . | nindent 4 }}
+{{- end }}
+spec:
+  destination:
+    namespace: {{ .namespace }}
+    server: https://kubernetes.default.svc
+  project: {{ .project }}
+  source:
+    path: {{ .repo.path }}
+    repoURL: {{ .repo.url }}
+    targetRevision: {{ .repo.ref }}
+    helm:
+      valueFiles:
+        {{- range .helm.valuesFiles }}
+        - {{ . }}
+        {{- end }}
+  {{- if .sync }}
+  syncPolicy:
+    syncOptions:
+      - "CreateNamespace=true"
+    automated:
+      selfHeal: {{ .sync.selfHeal }}
+      prune: {{ .sync.prune }}
+    {{- if .sync.retry }}
+    retry:
+      limit: {{ default 3 .sync.retry.limit }}
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+    {{- end }}
+  {{- else }}
+  syncPolicy: {}
+  {{- end }}
+{{- end }}
