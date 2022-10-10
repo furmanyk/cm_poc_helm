@@ -8,4 +8,8 @@ apps:
       ref: master
     helm:
       valuesFiles:
-        - values-fra41-eks02.yaml
+        - conf/common/values-common.yml
+        - conf/aggregations/values-eu.yml
+        - conf/aggregations/values-prod.yml
+        - conf/envs/prod-eu/values-local-minikube.yaml
+
