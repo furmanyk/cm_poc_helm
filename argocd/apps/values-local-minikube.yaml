@@ -1,5 +1,4 @@
 apps:
-  # nginx test chart
   - name: ntc
     project: default
     namespace: testnm
@@ -20,9 +19,10 @@ apps:
       url: 'https://github.com/furmanyk/wordpress_chart'
       path: '.'
       ref: main
-    # helm:
-    #   valuesFiles:
-    #     - conf/common/values-common.yml
+    helm:
+      valuesFiles:
+        - conf/common/values-common.yml
+
     #     - conf/aggregations/values-eu.yml
     #     - conf/aggregations/values-prod.yml
     #     - conf/envs/prod-eu/values-local-minikube.yaml
