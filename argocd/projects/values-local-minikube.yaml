@@ -1,8 +1,3 @@
-dockerRegistry:
-  url: 'docker-registry.lab.nordigy.ru:443'
-  urlRo: 'docker-registry-ro.lab.nordigy.ru:443'
-  username: docker
-  password: docker
 defaultsLimits:
   limit:
     cpu: "100m"
@@ -11,3 +6,10 @@ defaultsLimits:
     cpu: "50m"
     memory: "128Mi"
 
+projects:
+  - name: ntc
+    namespace: testnm
+    useRoRegistry: true
+  - name: wordpress
+    namespace: testnm
+    useRoRegistry: true
