@@ -1,0 +1,9 @@
+apiVersion: v2
+name: ntc
+version: 0.0.1
+description: nginx test chart
+
+dependencies:
+  - name: nginx-instance
+    version: 0.0.1
+    repository: "https://github.com/furmanyk/nginx_chart"

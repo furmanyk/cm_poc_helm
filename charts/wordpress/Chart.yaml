@@ -1,0 +1,9 @@
+apiVersion: v2
+name: wordpress
+version: 0.0.1
+description: wordpress test
+
+dependencies:
+  - name: wordpress-instance
+    version: 0.0.1
+    repository: "https://github.com/furmanyk/wordpress_chart"
