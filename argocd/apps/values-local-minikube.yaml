@@ -22,9 +22,9 @@ apps:
       ref: main
     helm:
       valuesFiles:
-        - conf/common/values-common.yml
-        - conf/aggregations/values-eu.yml
-        - conf/aggregations/values-prod.yml
-        - conf/envs/prod-eu/values-local-minikube.yaml
+        - /conf/common/values-common.yml
+        - /conf/aggregations/values-eu.yml
+        - /conf/aggregations/values-prod.yml
+        - /conf/envs/prod-eu/values-local-minikube.yaml
     
 
