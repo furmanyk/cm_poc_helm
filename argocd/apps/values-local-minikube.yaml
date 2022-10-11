@@ -6,7 +6,7 @@ apps:
     repo:
       url: 'https://github.com/furmanyk/nginx_chart'
       path: '.'
-      ref: master
+      ref: main
     helm:
       valuesFiles:
         - conf/common/values-common.yml
@@ -19,7 +19,7 @@ apps:
     repo:
       url: 'https://github.com/furmanyk/wordpress_chart'
       path: '.'
-      ref: master
+      ref: main
     helm:
       valuesFiles:
         - conf/common/values-common.yml
