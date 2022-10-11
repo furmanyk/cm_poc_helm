@@ -1,7 +1,7 @@
 apps:
   # nginx test chart
   - name: ntc
-    project: ntc
+    project: default
     namespace: testnm
     repo:
       url: 'https://github.com/furmanyk/nginx_chart'
@@ -14,7 +14,7 @@ apps:
         - conf/aggregations/values-prod.yml
         - conf/envs/prod-eu/values-local-minikube.yaml
   - name: wordpress
-    project: wordpress
+    project: default
     namespace: testnm
     repo:
       url: 'https://github.com/furmanyk/wordpress_chart'
