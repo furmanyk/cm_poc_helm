@@ -4,6 +4,6 @@ version: 0.0.1
 description: nginx test chart
 
 dependencies:
-  - name: nginx-instance
+  - name: mychart
     version: 0.0.1
-    repository: "https://github.com/furmanyk/nginx_chart"
+    repository: "https://raw.githubusercontent.com/furmanyk/nginx_chart/main/charts"
