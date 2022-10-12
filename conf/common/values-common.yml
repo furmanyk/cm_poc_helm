@@ -1,6 +1,8 @@
 wordpress:
   wordpressUsername: 'admin'
   wordpressPassword: 'password'
+  wordpressEmail: 'values-common@email.io'
+  wordpressLastName: 'values-common-LN'
   mariadb:
     auth:
       rootPassword: 'secretpassword'

@@ -1,0 +1,4 @@
+wordpress:
+  wordpressBlogName: 'values-eu blog name'
+  wordpressFirstName: 'values-EU-FN'
+  wordpressLastName: 'values-EU-LN'
