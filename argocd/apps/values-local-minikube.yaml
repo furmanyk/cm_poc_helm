@@ -23,5 +23,5 @@ apps:
       valuesFiles:
         - ../../conf/common/values-common.yml
         - ../../conf/aggregations/values-eu.yml
-        - ../../conf/aggregations/values-prod.yml
-        - ../../conf/envs/prod-eu/values-local-minikube.yaml
+        - /conf/aggregations/values-prod.yml
+        - /conf/envs/prod-eu/values-local-minikube.yaml
