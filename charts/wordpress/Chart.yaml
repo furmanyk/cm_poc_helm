@@ -6,4 +6,4 @@ description: wordpress test
 dependencies:
   - name: wordpress-instance
     version: 0.0.1
-    repository: "https://github.com/furmanyk/wordpress_chart"
+    repository: "https://raw.githubusercontent.com/furmanyk/wordpress_chart/main/charts"
