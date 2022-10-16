@@ -1,26 +1,35 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
-  name: ntc
+  name: headofappset
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/furmanyk/cm_poc_helm
-    targetRevision: main
-    path: charts/ntc
-    # helm:
-    #   valueFiles:
-    #   - ../../conf/common/values-common.yml
-    #   - ../../conf/aggregations/values-eu.yml
-    #   - ../../conf/aggregations/values-prod.yml
-    #   - ../../conf/envs/prod-eu/values-local-minikube.yaml
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: testnm
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-    automated:
-      prune: true
-      selfHeal: true
+  generators:
+  - list:
+      elements:
+      - appname: ntc
+        repourl: 'https://github.com/furmanyk/cm_poc_helm'
+        repopath: 'charts/ntc'
+        reporef: main
+      - appname: wordpress
+        repourl: 'https://github.com/furmanyk/cm_poc_helm'
+        repopath: 'charts/wordpress'
+        reporef: main
+  template:
+    metadata:
+      name: '{{.appname}}'
+    spec:
+      project: default
+      source:
+        repoURL: '{{.repourl}}'
+        targetRevision: '{{.reporef}}'
+        path: '{{.repopath}}'
+        # helm:
+        #   valueFiles:
+        #     - ../../conf/common/values-common.yml
+        #     - ../../conf/aggregations/values-eu.yml
+        #     - ../../conf/aggregations/values-prod.yml
+        #     - ../../conf/envs/prod-eu/values-local-minikube.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: testnm
