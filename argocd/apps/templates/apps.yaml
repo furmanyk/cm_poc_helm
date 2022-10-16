@@ -4,32 +4,4 @@ metadata:
   name: headofappset
   namespace: argocd
 spec:
-  generators:
-  - list:
-      elements:
-      - appname: ntc
-        repourl: 'https://github.com/furmanyk/cm_poc_helm'
-        repopath: 'charts/ntc'
-        reporef: main
-      - appname: wordpress
-        repourl: 'https://github.com/furmanyk/cm_poc_helm'
-        repopath: 'charts/wordpress'
-        reporef: main
-  template:
-    metadata:
-      name: '{{`{{ .appname }}`}}'
-    spec:
-      project: default
-      source:
-        repoURL: '{{`{{ .repourl }}`}}'
-        targetRevision: '{{`{{ .reporef }}`}}'
-        path: '{{`{{ .repopath }}`}}'
-        # helm:
-        #   valueFiles:
-        #     - ../../conf/common/values-common.yml
-        #     - ../../conf/aggregations/values-eu.yml
-        #     - ../../conf/aggregations/values-prod.yml
-        #     - ../../conf/envs/prod-eu/values-local-minikube.yaml
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: testnm
+  {{ .Values.spec }}
