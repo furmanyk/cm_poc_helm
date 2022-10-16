@@ -17,13 +17,13 @@ spec:
         reporef: main
   template:
     metadata:
-      name: '{{.appname}}'
+      name: '{{appname}}'
     spec:
       project: default
       source:
-        repoURL: '{{.repourl}}'
-        targetRevision: '{{.reporef}}'
-        path: '{{.repopath}}'
+        repoURL: '{{repourl}}'
+        targetRevision: '{{reporef}}'
+        path: '{{repopath}}'
         # helm:
         #   valueFiles:
         #     - ../../conf/common/values-common.yml
