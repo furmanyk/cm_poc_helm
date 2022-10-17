@@ -1,0 +1,16 @@
+cluster_name: prod-nasa/dca19.yaml
+apps:
+  - name: ntc
+    project: default
+    namespace: testnm
+    repo:
+      url: 'https://github.com/furmanyk/cm_poc_helm'
+      path: 'charts/ntc'
+      ref: main
+  - name: wordpress
+    project: default
+    namespace: testnm
+    repo:
+      url: 'https://github.com/furmanyk/cm_poc_helm'
+      path: 'charts/wordpress'
+      ref: main

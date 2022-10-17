@@ -1,5 +1,4 @@
-# https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/application.yaml
-
+{{- $cluster_name := .Values.cluster_name }}
 {{- range .Values.apps }}
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -18,10 +17,9 @@ spec:
     targetRevision: {{ .repo.ref }}
     helm:
       valueFiles:
-        - ../../conf/common/values-common.yml
-        - ../../conf/aggregations/values-eu.yml
-        - ../../conf/aggregations/values-prod.yml
-        - ../../conf/envs/prod-eu/values-local-minikube.yaml
+        - ../../conf/common/values-common.yaml
+        - ../../conf/aggregations/values-non-prod.yaml
+        - ../../conf/env/{{ $cluster_name }}
   syncPolicy:
     syncOptions:
       - "CreateNamespace=false"
