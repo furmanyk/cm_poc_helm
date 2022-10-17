@@ -1,7 +1,36 @@
+# https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/application.yaml
+
+{{- range .Values.apps }}
+---
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
-  name: headofappset
+  name: {{ .name }}
   namespace: argocd
 spec:
-  {{ .Values.spec }}
+  destination:
+    namespace: {{ .namespace }}
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: {{ .repo.path }}
+    repoURL: {{ .repo.url }}
+    targetRevision: {{ .repo.ref }}
+    helm:
+      valueFiles:
+        - ../../conf/common/values-common.yml
+        - ../../conf/aggregations/values-eu.yml
+        - ../../conf/aggregations/values-prod.yml
+        - ../../conf/envs/prod-eu/values-local-minikube.yaml
+  syncPolicy:
+    syncOptions:
+      - "CreateNamespace=false"
+    automated:
+      selfHeal: true
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+{{- end }}
