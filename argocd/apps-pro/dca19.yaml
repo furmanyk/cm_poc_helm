@@ -6,11 +6,11 @@ apps:
     repo:
       url: 'https://github.com/furmanyk/cm_poc_helm'
       path: 'charts/ntc'
-      ref: main
+      ref: 22.3
   - name: wordpress
     project: default
     namespace: testnm
     repo:
       url: 'https://github.com/furmanyk/cm_poc_helm'
       path: 'charts/wordpress'
-      ref: main
+      ref: 22.3
