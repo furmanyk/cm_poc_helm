@@ -18,7 +18,8 @@ spec:
     helm:
       valueFiles:
         - ../../conf/common/values-common.yaml
-        - ../../conf/aggregations/values-non-prod.yaml
+        - ../../conf/aggregations/values-eu.yaml
+        - ../../conf/aggregations/values-prod.yaml
         - ../../conf/env/{{ $cluster_name }}
   syncPolicy:
     syncOptions:
