@@ -14,7 +14,7 @@ spec:
   source:
     path: {{ .repo.path }}
     repoURL: {{ .repo.url }}
-    targetRevision: {{ .repo.ref }}
+    targetRevision: {{ .repo.ref | quote }}
     helm:
       valueFiles:
         - ../../conf/common/values-common.yaml
