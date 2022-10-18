@@ -19,7 +19,7 @@ spec:
       valueFiles:
         - ../../conf/common/values-common.yaml
         - ../../conf/aggregations/values-non-prod.yaml
-        - ../../conf/env/{{ $cluster_name }}
+        - ../../conf/envs/{{ $cluster_name }}
   syncPolicy:
     syncOptions:
       - "CreateNamespace=false"
