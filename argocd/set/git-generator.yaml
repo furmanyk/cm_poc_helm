@@ -1,26 +1,26 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   name: headofappset
-# spec:
-#   generators:
-#   - git:
-#       repoURL: https://github.com/furmanyk/cm_poc_helm
-#       revision: main
-#       directories:
-#       - path: charts/*
-#   template:
-#     metadata:
-#       name: '{{path.basename}}'
-#     spec:
-#       project: default
-#       source:
-#         repoURL: https://github.com/furmanyk/cm_poc_helm
-#         targetRevision: main
-#         path: '{{path.path}}'
-#       destination:
-#         server: https://kubernetes.default.svc
-#         namespace: testnm
-#       syncPolicy:
-#         syncOptions:
-#         - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: headofappset
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/furmanyk/cm_poc_helm
+      revision: main
+      directories:
+      - path: charts/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/furmanyk/cm_poc_helm
+        targetRevision: main
+        path: '{{path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: testnm
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
