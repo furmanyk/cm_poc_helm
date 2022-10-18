@@ -1,6 +1,6 @@
 wordpress:
-  wordpressUsername: 'admin_22.3'
-  wordpressPassword: 'password'
+  wordpressUsername: 'admin_22.4'
+  wordpressPassword: 'password_22.4'
   wordpressEmail: 'values-common@email.io'
   wordpressLastName: 'values-common-LN'
   mariadb:
