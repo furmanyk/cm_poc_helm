@@ -1,5 +1,5 @@
 wordpress:
-  wordpressUsername: 'admin'
+  wordpressUsername: 'admin_22.3'
   wordpressPassword: 'password'
   wordpressEmail: 'values-common@email.io'
   wordpressLastName: 'values-common-LN'
